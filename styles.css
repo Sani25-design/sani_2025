@@ -1,0 +1,131 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Body - Futuristic Gradient Background */
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Profile Container */
+.profile-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Profile Card */
+.profile-card {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Avatar */
+.avatar-container {
+  margin-bottom: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  border: 5px solid #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  transform: rotate(10deg);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Name */
+.name {
+  font-size: 2em;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Role */
+.role {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #b3b3b3;
+  letter-spacing: 1px;
+}
+
+/* Bio */
+.bio {
+  font-size: 1em;
+  color: #e0e0e0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Social Links - Floating Effect */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.social-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s, transform 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.social-link:hover {
+  color: #7a00e0;
+  transform: scale(1.1);
+  border-bottom: 2px solid #7a00e0;
+  text-shadow: 0 0 10px rgba(122, 0, 224, 0.8);
+}
+
+/* Glowing Hover Effect for Avatar */
+.avatar-container:hover {
+  box-shadow: 0 0 30px #7a00e0, 0 0 60px #7a00e0, 0 0 90px #7a00e0;
+  transform: rotate(0deg);
+}
+
+/* Glowing Text Animation */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px rgba(122, 0, 224, 0.7), 0 0 20px rgba(122, 0, 224, 0.7); }
+  50% { text-shadow: 0 0 30px rgba(122, 0, 224, 1), 0 0 40px rgba(122, 0, 224, 1); }
+  100% { text-shadow: 0 0 10px rgba(122, 0, 224, 0.7), 0 0 20px rgba(122, 0, 224, 0.7); }
+}
+
+.name, .social-link {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Floating Animation for Profile */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
