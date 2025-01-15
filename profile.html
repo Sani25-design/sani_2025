@@ -165,8 +165,40 @@
             transform: scale(1.05);
             box-shadow: 0px 0px 30px #9e00d6;
         }
+	   
+    .projects, .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
 
-        footer {
+.projects div, .gallery img {
+    background: rgba(128, 0, 128, 0.08); /* Light purple background */
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px rgba(75, 0, 130, 0.5); /* Purple shadow */
+    overflow: hidden;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.projects div:hover, .gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 40px #9370DB; /* Brighter purple shadow */
+}
+
+.projects div {
+    padding: 2rem;
+    color: #ffffff; /* Keep text white for contrast */
+    font-weight: bold;
+    text-align: left;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+	    footer {
             text-align: center;
             padding: 2rem 0;
             background: rgba(26, 26, 26, 0.95); /* Dark footer background */
