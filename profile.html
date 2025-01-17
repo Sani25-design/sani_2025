@@ -262,18 +262,43 @@
         </div>
     </section>
 	
-<section id="redirect-button" style="text-align: center; margin-top: 3rem;">
-    <a href="portfolio.html" class="futuristic-button">For More</a>
+<!-- Button Section -->
+    <div class="gallery-button">
+        <a href="portfolio.html" class="futuristic-button">For More</a>
+    </div>
 </section>
 
 <style>
+    /* Gallery Button Container */
+    .gallery-button {
+        position: relative;
+        margin-top: -50px; /* Adjusts to overlap with the last row of images */
+        text-align: center;
+        z-index: 2;
+    }
+
+    /* Blurred Background for the Button */
+    .gallery-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 70px; /* Adjust height of the blurred strip */
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+        filter: blur(10px); /* Blur effect */
+        z-index: -1;
+    }
+
+    /* Button Styling */
     .futuristic-button {
         display: inline-block;
         background: linear-gradient(45deg, #8e44ad, #e91e63);
         border: none;
         border-radius: 30px;
         color: white;
-        padding: 15px 30px;
+        padding: 10px 25px;
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
