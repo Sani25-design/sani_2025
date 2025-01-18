@@ -65,17 +65,33 @@
             margin-top: 3rem;
         }
 
+        .gallery-item {
+            position: relative;
+        }
+
         .gallery img {
             width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
+            user-select: none;
+            pointer-events: none; /* Prevent interactions */
         }
 
         .gallery img:hover {
             transform: scale(1.05);
             box-shadow: 0px 0px 20px rgba(255, 0, 150, 0.6);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            cursor: default;
         }
 
         footer {
@@ -90,59 +106,102 @@
             color: #9e00d6;
         }
     </style>
+    <script>
+        // Disable right-click on the entire page
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        // Disable specific key combinations (Ctrl+S, Ctrl+U, etc.)
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && ['s', 'u', 'c', 'p'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </head>
 <body>
     <section>
         <h2>Image Gallery</h2>
         <div class="gallery">
-            <a href="image1_page.html">
-                <img src="Leonardo_Phoenix_10_A_misty_emeraldgreen_dense_jungle_with_twi_0.jpg" alt="Design 1" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image2_page.html">
-                <img src="Leonardo_Anime_XL_A_serene_landscape_of_a_quiet_forest_at_suns_1.jpg" alt="Design 2" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image3_page.html">
-                <img src="Leonardo_Anime_XL_A_mesmerizing_8K_Ultra_HD_animestyle_digital_2.jpg" alt="Design 3" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image4_page.html">
-                <img src="Leonardo_Anime_XL_A_serene_landscape_of_a_quiet_forest_at_suns_3.jpg" alt="Design 4" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image5_page.html">
-                <img src="Leonardo_Phoenix_10_A_misty_emeraldgreen_dense_jungle_with_twi_3.jpg" alt="Design 5" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image6_page.html">
-                <img src="Leonardo_Lightning_XL_anime_guy_vapeing_full_body_looking_high_3.jpg" alt="Design 6" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image7_page.html">
-                <img src="Default_the_boy_with_the_glassesthe_girl_with_middle_long_hair_1.jpg" alt="Design 7" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image8_page.html">
-                <img src="Default_A_powerful_and_intense_animestyle_samurai_warrior_stan_1.jpg" alt="Design 8" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image9_page.html">
-                <img src="Leonardo_Anime_XL_A_Ghiblistyle_sunrise_over_towering_misty_mo_1.jpg" alt="Design 9" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image10_page.html">
-                <img src="AlbedoBase_XL_A_stunning_animestyle_landscape_set_during_a_twi_2.jpg" alt="Design 10" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image11_page.html">
-                <img src="Leonardo_Anime_XL_Spiderman_clad_in_a_hoodie_headphones_and_Jo_3.jpg" alt="Design 11" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image12_page.html">
-                <img src="Leonardo_Lightning_XL_Imagine_a_mystical_forest_filled_with_vi_0.jpg" alt="Design 12" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image13_page.html">
-                <img src="Leonardo_Phoenix_10_A_magical_forest_illuminated_by_biolumines_2.jpg" alt="Design 13" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image14_page.html">
-                <img src="Leonardo_Phoenix_10_A_white_rabbit_exploring_an_enchanted_gard_2.jpg" alt="Design 14" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image15_page.html">
-                <img src="Leonardo_Lightning_XL_Abstract_painting_moon_and_stars_over_cl_1 (1).jpg" alt="Design 15" oncontextmenu="return false;" draggable="false">
-            </a>
-            <a href="image16_page.html">
-                <img src="Leonardo_Anime_XL_A_serene_lake_reflecting_the_moon_and_stars_0.jpg" alt="Design 16" oncontextmenu="return false;" draggable="false">
-            </a>
+            <!-- Image 1 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Phoenix_10_A_misty_emeraldgreen_dense_jungle_with_twi_0.jpg" alt="Design 1">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 2 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Anime_XL_A_serene_landscape_of_a_quiet_forest_at_suns_1.jpg" alt="Design 2">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 3 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Anime_XL_A_mesmerizing_8K_Ultra_HD_animestyle_digital_2.jpg" alt="Design 3">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 4 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Anime_XL_A_serene_landscape_of_a_quiet_forest_at_suns_3.jpg" alt="Design 4">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 5 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Phoenix_10_A_misty_emeraldgreen_dense_jungle_with_twi_3.jpg" alt="Design 5">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 6 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Lightning_XL_anime_guy_vapeing_full_body_looking_high_3.jpg" alt="Design 6">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 7 -->
+            <div class="gallery-item">
+                <img src="Default_the_boy_with_the_glassesthe_girl_with_middle_long_hair_1.jpg" alt="Design 7">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 8 -->
+            <div class="gallery-item">
+                <img src="Default_A_powerful_and_intense_animestyle_samurai_warrior_stan_1.jpg" alt="Design 8">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 9 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Anime_XL_A_Ghiblistyle_sunrise_over_towering_misty_mo_1.jpg" alt="Design 9">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 10 -->
+            <div class="gallery-item">
+                <img src="AlbedoBase_XL_A_stunning_animestyle_landscape_set_during_a_twi_2.jpg" alt="Design 10">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 11 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Anime_XL_Spiderman_clad_in_a_hoodie_headphones_and_Jo_3.jpg" alt="Design 11">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 12 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Lightning_XL_Imagine_a_mystical_forest_filled_with_vi_0.jpg" alt="Design 12">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 13 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Phoenix_10_A_magical_forest_illuminated_by_biolumines_2.jpg" alt="Design 13">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 14 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Phoenix_10_A_white_rabbit_exploring_an_enchanted_gard_2.jpg" alt="Design 14">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 15 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Lightning_XL_Abstract_painting_moon_and_stars_over_cl_1 (1).jpg" alt="Design 15">
+                <div class="gallery-overlay"></div>
+            </div>
+            <!-- Image 16 -->
+            <div class="gallery-item">
+                <img src="Leonardo_Anime_XL_A_serene_lake_reflecting_the_moon_and_stars_0.jpg" alt="Design 16">
+                <div class="gallery-overlay"></div>
+            </div>
         </div>
     </section>
     <footer>
